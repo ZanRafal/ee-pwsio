@@ -96,12 +96,10 @@ public class PerformanceMonitor {
             sb.append("- Zmiana liczby wątków: ").append(finalThreadCount - initialThreadCount).append("\n");
             sb.append("- Zużycie pamięci: ").append(String.format("%.2f", memoryUsageMB)).append(" MB\n");
 
-            // Analiza zmian stanów wątków
             sb.append("- Analiza stanów wątków:\n");
             int newThreads = 0;
             int completedThreads = 0;
 
-            // Policz nowe wątki
             for (ThreadState finalState : finalThreadStates) {
                 boolean existed = false;
                 for (ThreadState initialState : initialThreadStates) {
@@ -115,7 +113,6 @@ public class PerformanceMonitor {
                 }
             }
 
-            // Policz zakończone wątki
             for (ThreadState initialState : initialThreadStates) {
                 boolean stillExists = false;
                 for (ThreadState finalState : finalThreadStates) {
